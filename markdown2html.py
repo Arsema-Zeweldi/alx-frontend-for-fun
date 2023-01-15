@@ -26,6 +26,11 @@ if __name__ == "__main__":
             olExists = False
             parExists = False
             for line in mdfile:
+                line = line.replace("__", "<em>", 1)
+                line = line.replace("__", "</em", 1)
+                line = line.replace("**", "<b>", 1)
+                line = line.replace("**", "</b>", 1)
+
                 lenOfLine = len(line)
                 heading = line.lstrip("#")
                 numOfHeading = lenOfLine - len(heading)
@@ -33,6 +38,10 @@ if __name__ == "__main__":
                 ulItem = lenOfLine - len(ulListItem)
                 olListItem = line.lstrip("*")
                 olItem = lenOfLine - len(olListItem)
+                bold = line.lstrip("**")
+                boldItem = lenOfLine - len(bold)
+                emph = line.lstrip("__")
+                emphItem = lenOfLine - len(emph)
 
                 if 1 <= numOfHeading <= 6:
                     line = "<h{}>".format(numOfHeading) + heading.strip() + "</h{}>\n".format(numOfHeading)
