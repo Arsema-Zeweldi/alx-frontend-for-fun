@@ -24,6 +24,7 @@ if __name__ == "__main__":
         with htmlfile as html:
             ulExists = False
             olExists = False
+            parExists = False
             for line in mdfile:
                 lenOfLine = len(line)
                 heading = line.lstrip("#")
@@ -54,6 +55,16 @@ if __name__ == "__main__":
                     html.write("</ol>\n")
                     olExists = False
 
+                if not numOfHeading and not ulItem and not olItem:
+                    if not parExists and lenOfLine > 1:
+                        html.write("<p>\n")
+                        parExists = True
+                    elif lenOfLine > 1:
+                        html.write("<br/>\n")
+                    elif parExists:
+                        html.write("</p>\n")
+                        parExists = False
+
                 if lenOfLine > 1:
                     html.write(line)
 
@@ -61,3 +72,5 @@ if __name__ == "__main__":
                 html.write("</ul>\n")
             if olExists:
                 html.write("</ol>\n")
+            if parExists:
+                html.write("</p>\n")
