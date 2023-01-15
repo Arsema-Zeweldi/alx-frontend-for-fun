@@ -22,13 +22,13 @@ if __name__ == "__main__":
     htmlfile = open(sys.argv[2], 'w')
     with mdfile as md:
         with htmlfile as html:
+            ulExists = False
             for line in mdfile:
                 lenOfLine = len(line)
                 heading = line.lstrip("#")
                 numOfHeading = lenOfLine - len(heading)
                 ulListItem = line.lstrip("-")
                 ulItem = lenOfLine - len(ulListItem)
-                ulExists = False
 
                 if 1 <= numOfHeading <= 6:
                     line = "<h{}>".format(numOfHeading) + heading.strip() + "</h{}>\n".format(numOfHeading)
@@ -46,4 +46,4 @@ if __name__ == "__main__":
                     html.write(line)
 
             if ulExists:
-                html.write("<ul>\n")
+                html.write("</ul>\n")
