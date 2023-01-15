@@ -27,7 +27,7 @@ if __name__ == "__main__":
             parExists = False
             for line in mdfile:
                 line = line.replace("__", "<em>", 1)
-                line = line.replace("__", "</em", 1)
+                line = line.replace("__", "</em>", 1)
                 line = line.replace("**", "<b>", 1)
                 line = line.replace("**", "</b>", 1)
 
