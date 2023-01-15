@@ -18,3 +18,4 @@ if __name__ == "__main__":
     if not os.path.exists(sys.argv[1]):
         errprint("Missing {}".format(sys.argv[1]))
         exit(1)
+	exit(0)
