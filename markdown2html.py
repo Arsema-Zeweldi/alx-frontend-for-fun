@@ -18,13 +18,15 @@ if __name__ == "__main__":
         errprint("Missing {}".format(sys.argv[1]))
         exit(1)
 
-    readme = open(sys.argv[1], 'r')
-    with readme as read:
-        for line in read:
-            lenOfLine = len(line)
-            heading = line.lstrip("#")
-            numOfHeading = lenOfLine - len(heading)
+    mdfile = open(sys.argv[1], 'r')
+    htmlfile = open(sys.argv[2], 'w')
+    with mdfile as md:
+        with htmlfile as html:
+            for line in mdfile:
+                lenOfLine = len(line)
+                heading = line.lstrip("#")
+                numOfHeading = lenOfLine - len(heading)
 
-            if 1 <= numOfHeading <= 6:
-                line = "<h{}>".format(numOfHeading) + heading.strip() +
-                "</h{}>\n".format(numOfHeading)
+                if 1 <= numOfHeading <= 6:
+                    line = "<h{}>".format(numOfHeading) + heading.strip() + "</h{}>\n".format(numOfHeading)
+                    html.write(line)
