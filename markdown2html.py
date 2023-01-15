@@ -4,7 +4,6 @@
 
 import sys
 import os
-import markdown
 
 if __name__ == "__main__":
     def errprint(*args):
