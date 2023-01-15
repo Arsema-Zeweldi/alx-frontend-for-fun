@@ -20,11 +20,12 @@ if __name__ == "__main__":
         exit(1)
 
     readme = open(sys.argv[1], 'r')
-    for line in readme:
-        lenOfLine = len(line)
-        heading = line.lstrip("#")
-        numOfHeading = lenOfLine - len(heading)
+    with readme as read:
+        for line in read:
+            lenOfLine = len(line)
+            heading = line.lstrip("#")
+            numOfHeading = lenOfLine - len(heading)
 
-        if 1 <= numOfHeading <= 6:
-            line = "<h{}>".format(numOfHeading) + heading.strip() +
-            "</h{}>\n".format(numOfHeading)
+            if 1 <= numOfHeading <= 6:
+                line = "<h{}>".format(numOfHeading) + heading.strip() +
+                "</h{}>\n".format(numOfHeading)
