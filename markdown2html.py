@@ -26,7 +26,24 @@ if __name__ == "__main__":
                 lenOfLine = len(line)
                 heading = line.lstrip("#")
                 numOfHeading = lenOfLine - len(heading)
+                ulListItem = line.lstrip("-")
+                ulItem = lenOfLine - len(ulListItem)
+                ulExists = False
 
                 if 1 <= numOfHeading <= 6:
                     line = "<h{}>".format(numOfHeading) + heading.strip() + "</h{}>\n".format(numOfHeading)
+              
+                if ulItem:
+                    if not ulExists:
+                        html.write("<ul>\n")
+                        ulExists = True
+                    line = "<li>" + ulListItem.strip() + "</li>\n"
+                if ulExists and not ulItem:
+                    html.write("</ul>\n")
+                    ulExists = False
+
+                if lenOfLine > 1:
                     html.write(line)
+
+            if ulExists:
+                html.write("<ul>\n")
