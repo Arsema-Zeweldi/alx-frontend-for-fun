@@ -4,11 +4,8 @@
 
 import sys
 import os
-import markdown
-from mdutils.mdutils import MdUtils
-from mdutils import Html
 
-def createHtml():
+if __name__ == "__main__":
     def errprint(*args):
         print(*args, file=sys.stderr)
 
@@ -18,11 +15,7 @@ def createHtml():
         exit(1)
 
     if os.path.exists(sys.argv[1]):
-        markdown.markdownFromFile(input=sys.argv[1], output=sys.argv[2])
+        exit(0)
     else:
         errprint("Missing ", sys.argv[1])
         exit(1)
-
-
-if __name__ == "__main__":
-    createHtml()
