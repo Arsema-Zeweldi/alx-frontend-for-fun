@@ -1,0 +1,10 @@
+/* Assigns text color to body tag */
+$primary-color: #3D3D3D;
+$secondary-color: #FF0000;
+
+body {
+	color: $primary-color;
+	> .red {
+		color: $secondary-color;
+	}
+}
