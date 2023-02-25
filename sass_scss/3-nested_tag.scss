@@ -1,0 +1,12 @@
+/* Assigns margin and padding to body and p */
+$primary-margin: 10px;
+$secondary-margin: 0px;
+$primary-padding: 0px;
+
+body {
+	margin: $secondary-margin;
+	padding: $primary-padding;
+	body p {
+		margin: $primary-margin;
+	}
+}
