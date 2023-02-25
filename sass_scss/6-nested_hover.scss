@@ -1,10 +1,8 @@
 /* Assigns text color to button tag */
-$primary-color: #FF0000;
-$secondary-color: #00FF00;
 
 button {
-	color: $primary-color;
+	color: #FF0000;
 	&:hover {
-		color: $secondary-color;
+		color: #00FF00;
 	}
 }
