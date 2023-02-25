@@ -1,0 +1,14 @@
+/* Assigns font size */
+$font-size-one: 14px;
+$font-size-two: 16px;
+$font-size-three: 12px;
+
+body {
+	font-size: $font-size-one;
+	h1 {
+		font-size: $font-size-two;
+		&.smaller {
+			font-size: $font-size-three;
+		}
+	}
+}
