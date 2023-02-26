@@ -1,0 +1,19 @@
+/* Assigns margin left and right to body and div tags */
+
+@mixin list {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+@mixin list2 {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+body {
+	@include list;
+}
+
+div {
+	@include list2;
+}
